@@ -1,7 +1,7 @@
-// controllers/todoController.js
+
 const Todo = require('../models/Todo.js');
 
-// Controller functions
+
 const getTodos = async (req, res) => {
   try {
     const todos = await Todo.find().sort({ createdAt: -1 });
@@ -16,7 +16,7 @@ const addTodo = async (req, res) => {
   try {
     const { clientId, ...todoData } = req.body;
     const todo = await Todo.create(todoData);
-    // Emit socket event with client ID to prevent duplicate notifications
+   
     req.io.emit('todo_added', todo, clientId);
     res.status(201).json(todo);
   } catch (error) {
@@ -30,7 +30,7 @@ const updateTodo = async (req, res) => {
     const { id } = req.params;
     const { clientId, ...todoData } = req.body;
     const updated = await Todo.findByIdAndUpdate(id, todoData, { new: true });
-    // Emit socket event with client ID
+   
     req.io.emit('todo_updated', updated, clientId);
     res.json(updated);
   } catch (error) {
@@ -45,7 +45,7 @@ const deleteTodo = async (req, res) => {
     const { clientId, text } = req.query;
     
     await Todo.findByIdAndDelete(id);
-    // Emit socket event with client ID and the todo text
+   
     req.io.emit('todo_deleted', id, text, clientId);
     res.status(204).end();
   } catch (error) {
@@ -54,7 +54,7 @@ const deleteTodo = async (req, res) => {
   }
 };
 
-// Use 'module.exports' to export controller functions
+
 module.exports = {
   getTodos,
   addTodo,

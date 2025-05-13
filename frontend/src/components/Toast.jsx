@@ -1,4 +1,4 @@
-// components/Toast.jsx
+
 import React, { useState, useEffect } from 'react';
 
 const Toast = ({ message, type, onClose }) => {
@@ -7,7 +7,7 @@ const Toast = ({ message, type, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-      setTimeout(onClose, 300); // Allow time for fade-out animation
+      setTimeout(onClose, 300); 
     }, 3000);
 
     return () => clearTimeout(timer);

@@ -1,8 +1,8 @@
-// components/ToastContainer.jsx
+
 import React, { useEffect } from 'react';
 
 const ToastContainer = ({ toasts, removeToast }) => {
-  // Auto-remove toasts after 5 seconds
+  
   useEffect(() => {
     if (toasts.length > 0) {
       const timer = setTimeout(() => {
@@ -13,7 +13,7 @@ const ToastContainer = ({ toasts, removeToast }) => {
     }
   }, [toasts, removeToast]);
 
-  // Map toast type to appropriate color
+  
   const getToastClasses = (type) => {
     switch (type) {
       case 'success':
@@ -28,7 +28,7 @@ const ToastContainer = ({ toasts, removeToast }) => {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col space-y-2"> {/* Changed top-5 to bottom-5 */}
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col space-y-2"> 
       {toasts.map((toast) => (
         <div
           key={toast.id}

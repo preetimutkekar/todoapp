@@ -1,4 +1,4 @@
-// components/TodoItem.jsx
+
 import React, { useState } from 'react';
 
 const TodoItem = ({ todo, onUpdateTodo, onDeleteTodo, startEditing }) => {
@@ -14,7 +14,7 @@ const TodoItem = ({ todo, onUpdateTodo, onDeleteTodo, startEditing }) => {
         ...todo,
         completed: !todo.completed,
       });
-      // Let socket handle the state update
+     
     } catch (error) {
       console.error('Error updating todo:', error);
     } finally {
@@ -28,7 +28,7 @@ const TodoItem = ({ todo, onUpdateTodo, onDeleteTodo, startEditing }) => {
     
     try {
       await onDeleteTodo(todo._id, todo.text);
-      // Let socket handle the removal
+      
     } catch (error) {
       console.error('Error deleting todo:', error);
       setIsDeleting(false);
@@ -43,7 +43,7 @@ const TodoItem = ({ todo, onUpdateTodo, onDeleteTodo, startEditing }) => {
           checked={todo.completed}
           onChange={toggleComplete}
           disabled={isUpdating}
-          className="mr-3 h-6 w-6 text-blue-600 cursor-pointer rounded-lg" /* Increased size and added rounded corners */
+          className="mr-3 h-6 w-6 text-blue-600 cursor-pointer rounded-lg" 
         />
         <span
           className={`cursor-pointer text-lg ${todo.completed ? 'line-through text-gray-500 dark:text-gray-400' : 'dark:text-white'}`} /* Increased font size */
@@ -52,7 +52,7 @@ const TodoItem = ({ todo, onUpdateTodo, onDeleteTodo, startEditing }) => {
           {todo.text}
         </span>
       </div>
-      <div className="flex space-x-2"> {/* Added spacing between buttons */}
+      <div className="flex space-x-2"> 
         <button 
           onClick={deleteTodo} 
           disabled={isDeleting}

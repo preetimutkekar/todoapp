@@ -33,7 +33,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    // Removed "My Tasks" and "Status"
+   
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -42,7 +42,7 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-gray-900 dark:to-gray-800 shadow-md fixed w-full z-50 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          
           <Link to="/" className="flex items-center space-x-3">
             <svg className="h-8 w-8 text-white dark:text-indigo-400" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -50,7 +50,7 @@ const Navbar = () => {
             <span className="text-2xl font-bold text-white dark:text-indigo-300">TodoFlow</span>
           </Link>
 
-          {/* Desktop Menu */}
+          
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
@@ -83,7 +83,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+        
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleDarkMode}
@@ -115,7 +115,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
+     
       {isMenuOpen && (
         <div className="md:hidden bg-indigo-700 dark:bg-gray-800 px-4 py-4 space-y-2">
           {navLinks.map((link) => (
